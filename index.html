@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telephone</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        *:focus {
+            outline: none;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 20px;
+            color: #d1d1d1;
+            font-weight: 400;
+        }
+        input.number-input {
+            width: 100%;
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            padding: 0 20px;
+            border-radius: 10px;
+            border: 0;
+            -webkit-box-shadow: 0px 0px 17px -1px rgba(132, 132, 132, 0.15);
+            -moz-box-shadow: 0px 0px 17px -1px rgba(132, 132, 132, 0.15);
+            box-shadow: 0px 0px 17px -1px rgba(132, 132, 132, 0.15);
+        }
+
+        .wrapper {
+            width: 100%;
+        }
+        .wrapper .phone {
+            width: 350px;
+            margin: 40px auto 0 auto;
+            position: relative;
+        }
+        .wrapper .phone span.title {
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: block;
+            text-align: center;
+        }
+        .wrapper .phone .phone-container {
+            width: 100%;
+            margin-top: 30px;
+        }
+        .wrapper .phone .phone-container .keyboard {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 40px;
+        }
+        .wrapper .phone .phone-container .keyboard .number {
+            width: 100%;
+            font-size: 0;
+            text-align: center;
+        }
+        .wrapper .phone .phone-container .keyboard .number.aling-right {
+            text-align: right;
+            width: 100%;
+        }
+        .wrapper .phone .phone-container .keyboard .number button {
+            font-size: 24px;
+            color: #E4BF88;
+            display: inline-block;
+            width: 33%;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .wrapper .phone .phone-container .keyboard .number span.call-button {
+            opacity: 0;
+            transition: 250ms;
+        }
+        .wrapper .phone .phone-container .keyboard .number span.call-button.show {
+            opacity: 1;
+        }
+        .wrapper .phone .phone-container .keyboard .number span.call-button img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .wrapper .phone .phone-container .keyboard .number button small {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background: white;
+            cursor: pointer;
+            border-radius: 100%;
+            transition: 250ms;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
+            -moz-box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
+            box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
+        }
+        .wrapper .phone .phone-container .keyboard .number span i.delete {
+            background: transparent;
+            box-shadow: 0 0 0 0;
+            -webkit-box-shadow: 0 0 0 0;
+            -moz-box-shadow: 0 0 0 0;
+            -ms-box-shadow: 0 0 0 0;
+            color: #E4BF88;
+        }
+        .wrapper .phone .phone-container .keyboard .number span i.delete img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .wrapper .phone .phone-container .keyboard .number span:hover i {
+            color: black;
+        }
+        .wrapper .phone .phone-container .keyboard .number span:active i {
+            transform: translateY(1px);
+            -webkit-box-shadow: 5px 5px 24px 0px rgba(132, 132, 132, 0.18);
+            -moz-box-shadow: 5px 5px 16px 0px rgba(132, 132, 132, 0.18);
+            box-shadow: 5px 5px 16px 0px rgba(132, 132, 132, 0.18);
+        }
+        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete {*/
+        /*  box-shadow: 0 0 0 0;*/
+        /*  -webkit-box-shadow: 0 0 0 0;*/
+        /*  -moz-box-shadow: 0 0 0 0;*/
+        /*  -ms-box-shadow: 0 0 0 0;*/
+        /*  transform: translateY(0px);*/
+        /*}*/
+        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete img {*/
+        /*  transtiion: 250ms;*/
+        /*}*/
+        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete:active img {*/
+        /*  transform: translateY(2px);*/
+        /*}*/
+    </style>
+
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="phone">
+        <div class="phone-container">
+            <input type="text" class="number-input" >
+
+            <div class="keyboard">
+                <div class="number">
+                    <button data-text=".,!" data-number="1">1 <small>.,!</small></button>
+                    <button data-text="abc2" data-number="2">2 <small>abc</small></button>
+                    <button data-text="def3" data-number="3">3 <small>def</small></button>
+                    <button data-text="ghi4" data-number="4">4 <small>ghi</small></button>
+                    <button data-text="jkl5" data-number="5">5 <small>jkl</small></button>
+                    <button data-text="mno6" data-number="6">6 <small>mno</small></button>
+                    <button data-text="pqrs7" data-number="7">7 <small>pqrs</small></button>
+                    <button data-text="tuv8" data-number="8">8 <small>tuv</small></button>
+                    <button data-text="wxyz9" data-number="9">9 <small>wxyz</small></button>
+                    <button data-text="*" data-number="*">* <small></small> </button>
+                    <button data-text="0" data-number="0">0 <small></small></button>
+                    <button data-text="#"># <small></small></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var button = document.querySelectorAll('button'),
+        input = document.querySelector('input'),
+        busy = true,
+        hold,
+        is_busy,
+        delay = 500,
+        change = -1,
+        is_time=false,
+        click = null;
+    input.focus();
+    let i = 0, len = button.length;
+    for (; i < len; ++i) {
+        button[i].onmousedown = function(e) {
+            var text = this.getAttribute('data-text').split(""),
+                number = this.getAttribute('data-number');
+            busy = true;
+            clearTimeout(is_busy);
+            if (click !== e.target) {
+                console.log(2);
+                busy = false;
+            }
+            console.log(is_time);
+            if (change >= text.length - 1 || click !== e.target || is_time) {
+                console.log(3);
+                change = 0;
+                is_time=false;
+                busy = false;
+                click = e.target;
+            } else {
+                console.log(4);
+                change = change + 1;
+            }
+            hold = setTimeout(function() {
+                input.value = input.value.slice(0, -1) + number;
+                console.log("in");
+                is_time=true;
+            }, delay);
+            input.value = busy ? input.value.slice(0, -1) + text[change] : input.value + text[change];
+        };
+        button[i].onmouseup = function(e) {
+            console.log("out");
+            clearTimeout(hold);
+            busy = true;
+            is_busy = setTimeout(function() {
+                console.log("out","2");
+                change = -1;
+                busy = false;
+                e.target = null;
+                is_time=true;
+            }, delay);
+            input.focus();
+            input.selectionStart = input.selectionEnd = input.value.length;
+        };
+    }
+</script>
+
+</body>
+
+</html>
