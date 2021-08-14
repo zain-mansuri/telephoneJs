@@ -19,8 +19,8 @@
 
         input {
             font-size: 20px;
-            color: #d1d1d1;
-            font-weight: 400;
+            color: #454444;
+            font-weight: 700;
         }
         input.number-input {
             width: 100%;
@@ -43,12 +43,6 @@
             margin: 40px auto 0 auto;
             position: relative;
         }
-        .wrapper .phone span.title {
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: block;
-            text-align: center;
-        }
         .wrapper .phone .phone-container {
             width: 100%;
             margin-top: 30px;
@@ -63,7 +57,7 @@
             font-size: 0;
             text-align: center;
         }
-        .wrapper .phone .phone-container .keyboard .number.aling-right {
+        .wrapper .phone .phone-container .keyboard .number {
             text-align: right;
             width: 100%;
         }
@@ -75,70 +69,25 @@
             text-align: center;
             margin-bottom: 25px;
         }
-        .wrapper .phone .phone-container .keyboard .number span.call-button {
-            opacity: 0;
-            transition: 250ms;
-        }
-        .wrapper .phone .phone-container .keyboard .number span.call-button.show {
-            opacity: 1;
-        }
-        .wrapper .phone .phone-container .keyboard .number span.call-button img {
-            display: inline-block;
-            vertical-align: middle;
-        }
         .wrapper .phone .phone-container .keyboard .number button small {
             display: inline-block;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
             background: white;
             cursor: pointer;
             border-radius: 100%;
             transition: 250ms;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
             -webkit-box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
             -moz-box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
             box-shadow: 8px 8px 24px 0px rgba(132, 132, 132, 0.09);
         }
-        .wrapper .phone .phone-container .keyboard .number span i.delete {
-            background: transparent;
-            box-shadow: 0 0 0 0;
-            -webkit-box-shadow: 0 0 0 0;
-            -moz-box-shadow: 0 0 0 0;
-            -ms-box-shadow: 0 0 0 0;
-            color: #E4BF88;
-        }
-        .wrapper .phone .phone-container .keyboard .number span i.delete img {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .wrapper .phone .phone-container .keyboard .number span:hover i {
-            color: black;
-        }
-        .wrapper .phone .phone-container .keyboard .number span:active i {
+        .wrapper .phone .phone-container .keyboard .number {
             transform: translateY(1px);
             -webkit-box-shadow: 5px 5px 24px 0px rgba(132, 132, 132, 0.18);
             -moz-box-shadow: 5px 5px 16px 0px rgba(132, 132, 132, 0.18);
             box-shadow: 5px 5px 16px 0px rgba(132, 132, 132, 0.18);
         }
-        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete {*/
-        /*  box-shadow: 0 0 0 0;*/
-        /*  -webkit-box-shadow: 0 0 0 0;*/
-        /*  -moz-box-shadow: 0 0 0 0;*/
-        /*  -ms-box-shadow: 0 0 0 0;*/
-        /*  transform: translateY(0px);*/
-        /*}*/
-        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete img {*/
-        /*  transtiion: 250ms;*/
-        /*}*/
-        /*.wrapper .phone .phone-container .keyboard .number span:active i.delete:active img {*/
-        /*  transform: translateY(2px);*/
-        /*}*/
     </style>
 
 
@@ -152,7 +101,7 @@
 
             <div class="keyboard">
                 <div class="number">
-                    <button data-text=".,!" data-number="1">1 <small>.,!</small></button>
+                    <button data-text=".,!1" data-number="1">1 <small>.,!</small></button>
                     <button data-text="abc2" data-number="2">2 <small>abc</small></button>
                     <button data-text="def3" data-number="3">3 <small>def</small></button>
                     <button data-text="ghi4" data-number="4">4 <small>ghi</small></button>
@@ -161,9 +110,9 @@
                     <button data-text="pqrs7" data-number="7">7 <small>pqrs</small></button>
                     <button data-text="tuv8" data-number="8">8 <small>tuv</small></button>
                     <button data-text="wxyz9" data-number="9">9 <small>wxyz</small></button>
-                    <button data-text="*" data-number="*">* <small></small> </button>
-                    <button data-text="0" data-number="0">0 <small></small></button>
-                    <button data-text="#"># <small></small></button>
+                    <button data-text="*" data-number="*"> <small>*</small> </button>
+                    <button data-text="0" data-number="0"> <small>0</small></button>
+                    <button data-text="#" data-number="#"> <small>#</small></button>
                 </div>
             </div>
         </div>
@@ -190,33 +139,31 @@
             busy = true;
             clearTimeout(is_busy);
             if (click !== e.target) {
-                console.log(2);
                 busy = false;
             }
             console.log(is_time);
             if (change >= text.length - 1 || click !== e.target || is_time) {
-                console.log(3);
+                // break here
                 change = 0;
                 is_time=false;
                 busy = false;
                 click = e.target;
             } else {
-                console.log(4);
+                // continue same
                 change = change + 1;
             }
             hold = setTimeout(function() {
                 input.value = input.value.slice(0, -1) + number;
-                console.log("in");
                 is_time=true;
             }, delay);
             input.value = busy ? input.value.slice(0, -1) + text[change] : input.value + text[change];
         };
         button[i].onmouseup = function(e) {
-            console.log("out");
             clearTimeout(hold);
             busy = true;
             is_busy = setTimeout(function() {
-                console.log("out","2");
+                // write new character now
+                // break here
                 change = -1;
                 busy = false;
                 e.target = null;
